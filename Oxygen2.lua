@@ -239,7 +239,7 @@ function Library.new(config)
 
 		Frame.Parent = ScreenGui
 		Frame.AnchorPoint = Vector2.new(0.5, 0.5)
-		Frame.BackgroundColor3 = Color3.fromRGB(5, 5, 5)
+		Frame.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
 		Frame.BackgroundTransparency = 0.500
 		Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Frame.BorderSizePixel = 0
@@ -1799,237 +1799,209 @@ function Library.new(config)
 				};
 			end;
 
-function SectionTable:NewSlider(slider)
-    slider = Config(slider, {
-        Title = "Slider",
-        Min = 0,
-        Max = 100,
-        Default = 50,
-        Step = 1, -- Added Step to configuration
-        Callback = function() end,
-    });
+			function SectionTable:NewSlider(slider)
+				slider = Config(slider,{
+					Title = "Slider",
+					Min = 0,
+					Max = 100,
+					Default = 50,
+					Callback = function()
 
-    local FunctionSlider = Instance.new("Frame")
-    local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
-    local TextInt = Instance.new("TextLabel")
-    local UIGradient = Instance.new("UIGradient")
-    local UIStroke = Instance.new("UIStroke")
-    local UICorner = Instance.new("UICorner")
-    local ValueText = Instance.new("TextLabel")
-    local UIGradient_2 = Instance.new("UIGradient")
-    local MFrame = Instance.new("Frame")
-    local UICorner_2 = Instance.new("UICorner")
-    local TFrame = Instance.new("Frame")
-    local UICorner_3 = Instance.new("UICorner")
-    local UIStroke_2 = Instance.new("UIStroke")
+					end,
+				});
 
-    FunctionSlider.Name = "FunctionSlider"
-    FunctionSlider.Parent = Section
-    FunctionSlider.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-    FunctionSlider.BackgroundTransparency = 0.800
-    FunctionSlider.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    FunctionSlider.BorderSizePixel = 0
-    FunctionSlider.Size = UDim2.new(0.949999988, 0, 0.5, 0)
-    FunctionSlider.ZIndex = 17
+				local FunctionSlider = Instance.new("Frame")
+				local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+				local TextInt = Instance.new("TextLabel")
+				local UIGradient = Instance.new("UIGradient")
+				local UIStroke = Instance.new("UIStroke")
+				local UICorner = Instance.new("UICorner")
+				local ValueText = Instance.new("TextBox")
+				local UIGradient_2 = Instance.new("UIGradient")
+				local MFrame = Instance.new("Frame")
+				local UICorner_2 = Instance.new("UICorner")
+				local TFrame = Instance.new("Frame")
+				local UICorner_3 = Instance.new("UICorner")
+				local UIStroke_2 = Instance.new("UIStroke")
 
-    UIAspectRatioConstraint.Parent = FunctionSlider
-    UIAspectRatioConstraint.AspectRatio = 6.000
-    UIAspectRatioConstraint.AspectType = Enum.AspectType.ScaleWithParentSize
+				FunctionSlider.Name = "FunctionSlider"
+				FunctionSlider.Parent = Section
+				FunctionSlider.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+				FunctionSlider.BackgroundTransparency = 0.800
+				FunctionSlider.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				FunctionSlider.BorderSizePixel = 0
+				FunctionSlider.Size = UDim2.new(0.949999988, 0, 0.5, 0)
+				FunctionSlider.ZIndex = 17
 
-    TextInt.Name = "TextInt"
-    TextInt.Parent = FunctionSlider
-    TextInt.AnchorPoint = Vector2.new(0.5, 0.5)
-    TextInt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    TextInt.BackgroundTransparency = 1.000
-    TextInt.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    TextInt.BorderSizePixel = 0
-    TextInt.Position = UDim2.new(0.5, 0, 0.25999999, 0)
-    TextInt.Size = UDim2.new(0.949999988, 0, 0.379999995, 0)
-    TextInt.ZIndex = 18
-    TextInt.Font = Enum.Font.GothamBold
-    TextInt.Text = slider.Title
-    TextInt.TextColor3 = Color3.fromRGB(255, 255, 255)
-    TextInt.TextScaled = true
-    TextInt.TextSize = 14.000
-    TextInt.TextTransparency = 0.250
-    TextInt.TextWrapped = true
-    TextInt.TextXAlignment = Enum.TextXAlignment.Left
+				UIAspectRatioConstraint.Parent = FunctionSlider
+				UIAspectRatioConstraint.AspectRatio = 6.000
+				UIAspectRatioConstraint.AspectType = Enum.AspectType.ScaleWithParentSize
 
-    UIGradient.Rotation = 90
-    UIGradient.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 0.00), NumberSequenceKeypoint.new(0.84, 0.25), NumberSequenceKeypoint.new(1.00, 1.00)}
-    UIGradient.Parent = TextInt
+				TextInt.Name = "TextInt"
+				TextInt.Parent = FunctionSlider
+				TextInt.AnchorPoint = Vector2.new(0.5, 0.5)
+				TextInt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				TextInt.BackgroundTransparency = 1.000
+				TextInt.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				TextInt.BorderSizePixel = 0
+				TextInt.Position = UDim2.new(0.5, 0, 0.25999999, 0)
+				TextInt.Size = UDim2.new(0.949999988, 0, 0.379999995, 0)
+				TextInt.ZIndex = 18
+				TextInt.Font = Enum.Font.GothamBold
+				TextInt.Text = slider.Title
+				TextInt.TextColor3 = Color3.fromRGB(255, 255, 255)
+				TextInt.TextScaled = true
+				TextInt.TextSize = 14.000
+				TextInt.TextTransparency = 0.250
+				TextInt.TextWrapped = true
+				TextInt.TextXAlignment = Enum.TextXAlignment.Left
 
-    UIStroke.Transparency = 0.950
-    UIStroke.Color = Color3.fromRGB(255, 255, 255)
-    UIStroke.Parent = FunctionSlider
+				UIGradient.Rotation = 90
+				UIGradient.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 0.00), NumberSequenceKeypoint.new(0.84, 0.25), NumberSequenceKeypoint.new(1.00, 1.00)}
+				UIGradient.Parent = TextInt
 
-    UICorner.CornerRadius = UDim.new(0, 2)
-    UICorner.Parent = FunctionSlider
+				UIStroke.Transparency = 0.950
+				UIStroke.Color = Color3.fromRGB(255, 255, 255)
+				UIStroke.Parent = FunctionSlider
 
-    ValueText.Name = "ValueText"
-    ValueText.Parent = FunctionSlider
-    ValueText.AnchorPoint = Vector2.new(0.5, 0.5)
-    ValueText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    ValueText.BackgroundTransparency = 1.000
-    ValueText.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    ValueText.BorderSizePixel = 0
-    ValueText.Position = UDim2.new(0.5, 0, 0.25999999, 0)
-    ValueText.Size = UDim2.new(0.949999988, 0, 0.349999994, 0)
-    ValueText.ZIndex = 18
-    ValueText.Font = Enum.Font.GothamBold
-    ValueText.Text = tostring(slider.Default)
-    ValueText.TextColor3 = Color3.fromRGB(255, 255, 255)
-    ValueText.TextScaled = true
-    ValueText.TextSize = 14.000
-    ValueText.TextTransparency = 0.500
-    ValueText.TextWrapped = true
-    ValueText.TextXAlignment = Enum.TextXAlignment.Right
+				UICorner.CornerRadius = UDim.new(0, 2)
+				UICorner.Parent = FunctionSlider
 
-    UIGradient_2.Rotation = 90
-    UIGradient_2.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 0.00), NumberSequenceKeypoint.new(0.84, 0.25), NumberSequenceKeypoint.new(1.00, 1.00)}
-    UIGradient_2.Parent = ValueText
+				ValueText.Name = "ValueText"
+				ValueText.Parent = FunctionSlider
+				ValueText.AnchorPoint = Vector2.new(0.5, 0.5)
+				ValueText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				ValueText.BackgroundTransparency = 1.000
+				ValueText.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				ValueText.BorderSizePixel = 0
+				ValueText.Position = UDim2.new(0.5, 0, 0.25999999, 0)
+				ValueText.Size = UDim2.new(0.949999988, 0, 0.349999994, 0)
+				ValueText.ZIndex = 18
+				ValueText.Font = Enum.Font.GothamBold
+				ValueText.Text = tostring(slider.Default)
+				ValueText.TextColor3 = Color3.fromRGB(255, 255, 255)
+				ValueText.TextScaled = true
+				ValueText.TextSize = 14.000
+				ValueText.TextTransparency = 0.500
+				ValueText.TextWrapped = true
+				ValueText.TextXAlignment = Enum.TextXAlignment.Right
 
-    MFrame.Name = "MFrame"
-    MFrame.Parent = FunctionSlider
-    MFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-    MFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-    MFrame.BackgroundTransparency = 0.800
-    MFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    MFrame.BorderSizePixel = 0
-    MFrame.ClipsDescendants = true
-    MFrame.Position = UDim2.new(0.5, 0, 0.75, 0)
-    MFrame.Size = UDim2.new(0.949999988, 0, 0.289999992, 0)
-    MFrame.ZIndex = 18
+				UIGradient_2.Rotation = 90
+				UIGradient_2.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 0.00), NumberSequenceKeypoint.new(0.84, 0.25), NumberSequenceKeypoint.new(1.00, 1.00)}
+				UIGradient_2.Parent = ValueText
 
-    UICorner_2.CornerRadius = UDim.new(0, 2)
-    UICorner_2.Parent = MFrame
+				MFrame.Name = "MFrame"
+				MFrame.Parent = FunctionSlider
+				MFrame.AnchorPoint = Vector2.new(0.5, 0.5)
+				MFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+				MFrame.BackgroundTransparency = 0.800
+				MFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				MFrame.BorderSizePixel = 0
+				MFrame.ClipsDescendants = true
+				MFrame.Position = UDim2.new(0.5, 0, 0.75, 0)
+				MFrame.Size = UDim2.new(0.949999988, 0, 0.289999992, 0)
+				MFrame.ZIndex = 18
 
-    TFrame.Name = "TFrame"
-    TFrame.Parent = MFrame
-    TFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    TFrame.BackgroundTransparency = 0.500
-    TFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    TFrame.BorderSizePixel = 0
-    TFrame.Size = UDim2.new((slider.Default - slider.Min) / (slider.Max - slider.Min), 0, 1, 0)
-    TFrame.Z Files = 17
+				UICorner_2.CornerRadius = UDim.new(0, 2)
+				UICorner_2.Parent = MFrame
 
-    UICorner_3.CornerRadius = UDim.new(0, 2)
-    UICorner_3.Parent = TFrame
+				TFrame.Name = "TFrame"
+				TFrame.Parent = MFrame
+				TFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+				TFrame.BackgroundTransparency = 0.500
+				TFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+				TFrame.BorderSizePixel = 0
+				TFrame.Size = UDim2.new((slider.Default / slider.Max), 0, 1, 0)
+				TFrame.ZIndex = 17
 
-    UIStroke_2.Transparency = 0.975
-    UIStroke_2.Color = Color3.fromRGB(255, 255, 255)
-    UIStroke_2.Parent = MFrame
+				UICorner_3.CornerRadius = UDim.new(0, 2)
+				UICorner_3.Parent = TFrame
 
-    local function roundToStep(value, step)
-        return math.floor((value / step) + 0.5) * step
-    end
+				UIStroke_2.Transparency = 0.975
+				UIStroke_2.Color = Color3.fromRGB(255, 255, 255)
+				UIStroke_2.Parent = MFrame
 
-    local Holding = false
+				local function roundToStep(value, step)
+                    return math.floor((value / step) + 0.5) * step
+                end
 
-    local function update(Input)
-        local SizeScale = math.clamp((((Input.Position.X) - MFrame.AbsolutePosition.X) / MFrame.AbsoluteSize.X), 0, 1)
-        local rawValue = ((slider.Max - slider.Min) * SizeScale) + slider.Min
-        local Value = roundToStep(rawValue, slider.Step)
-        Value = math.clamp(Value, slider.Min, slider.Max)
-        local Size = UDim2.fromScale((Value - slider.Min) / (slider.Max - slider.Min), 1)
-        local decimals = tostring(slider.Step):match("%.(%d+)")
-        decimals = decimals and #decimals or 0
-        ValueText.Text = string.format("%." .. decimals .. "f", Value)
-        Twen:Create(TFrame, TweenInfo.new(0.1), {Size = Size}):Play()
-        slider.Callback(Value)
-    end
+                local Holding = false
 
-    local function updateFromNumber(newValue)
-        local Value = tonumber(newValue)
-        if Value then
-            Value = roundToStep(math.clamp(Value, slider.Min, slider.Max), slider.Step)
-            local Size = UDim2.fromScale((Value - slider.Min) / (slider.Max - slider.Min), 1)
-            local decimals = tostring(slider.Step):match("%.(%d+)")
+                local function update(Input)
+                    local SizeScale = math.clamp((((Input.Position.X) - MFrame.AbsolutePosition.X) / MFrame.AbsoluteSize.X), 0, 1)
+                    local rawValue = ((slider.Max - slider.Min) * SizeScale) + slider.Min
+                    local Value = roundToStep(rawValue, slider.Step)
+                    Value = math.clamp(Value, slider.Min, slider.Max)
+                    local Size = UDim2.fromScale((Value - slider.Min) / (slider.Max - slider.Min), 1)
+                    local decimals = tostring(slider.Step):match("%.(%d+)")
+                    decimals = decimals and #decimals or 0
+                    ValueText.Text = string.format("%." .. decimals .. "f", Value)
+                    Twen:Create(TFrame,TweenInfo.new(0.1),{Size = Size}):Play()
+                    slider.Callback(Value);
+                end
+    
+                local function updateFromTextInput(inputValue)
+                    local Value = tonumber(inputValue)
+                    if Value then
+                        Value = roundToStep(Value, sliderConfig.Step)
+                        Value = math.clamp(Value, sliderConfig.Min, sliderConfig.Max)
+                        local Size = UDim2.fromScale((Value - sliderConfig.Min) / (sliderConfig.Max - sliderConfig.Min), 1)
+                   local decimals = tostring(sliderConfig.Step):match("%.(%d+)") or 0
             decimals = decimals and #decimals or 0
             ValueText.Text = string.format("%." .. decimals .. "f", Value)
-            Twen:Create(TFrame, TweenInfo.new(0.1), {Size = Size}):Play()
-            slider.Callback(Value)
+            TweenService:Create(TFrame, TweenInfo.new(0.1), {Size = Size}):Play()
+            sliderConfig.Callback(Value)
+        else
+
+
+            local currentValue = ((TFrame.Size.X.Scale * (sliderConfig.Max - sliderConfig.Min)) + sliderConfig.Min)
+            local decimals = tostring(sliderConfig.Step):match("%.(%d+)") or 0
+            decimals = decimals and #decimals or 0
+            ValueText.Text = string.format("%." .. decimals .. "f", currentValue)
         end
     end
+				MFrame.InputBegan:Connect(function(Input)
+					if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
+						Holding = true
+						update(Input)
+						Twen:Create(TextInt,TweenInfo.new(0.1),{
+							TextTransparency = 0
+						}):Play()
+					end
+				end)
 
-    -- Make ValueText clickable to input a new value
-    local ValueButton = Instance.new("TextButton")
-    ValueButton.Name = "ValueButton"
-    ValueButton.Parent = ValueText
-    ValueButton.BackgroundTransparency = 1.000
-    ValueButton.Size = UDim2.new(1, 0, 1, 0)
-    ValueButton.ZIndex = 19
-    ValueButton.Text = ""
-    ValueButton.TextTransparency = 1.000
+				MFrame.InputEnded:Connect(function(Input)
+					if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
+						Holding = false
+						Twen:Create(TextInt,TweenInfo.new(0.1),{
+							TextTransparency = 0.3
+						}):Play()
+					end
+				end)
 
-    ValueButton.MouseButton1Click:Connect(function()
-        local input = Instance.new("TextBox")
-        input.Size = UDim2.new(0.3, 0, 0.8, 0)
-        input.Position = UDim2.new(0.85, 0, 0.5, 0)
-        input.AnchorPoint = Vector2.new(0.5, 0.5)
-        input.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-        input.BackgroundTransparency = 0.5
-        input.TextColor3 = Color3.fromRGB(255, 255, 255)
-        input.TextScaled = true
-        input.Text = ValueText.Text
-        input.ZIndex = 20
-        input.Parent = FunctionSlider
-        input:CaptureFocus()
+				Input.InputChanged:Connect(function(Input)
+					if Holding then
+						if (Input.UserInputType==Enum.UserInputType.MouseMovement or Input.UserInputType==Enum.UserInputType.Touch)  then
+							update(Input)
+						end
+					end
+				end)
 
-        input.FocusLost:Connect(function(enterPressed)
-            if enterPressed then
-                updateFromNumber(input.Text)
-            end
-            input:Destroy()
-        end)
+				return {
+					Visible = function(newindx)
+						FunctionSlider.Visible = newindx
+					end,
+					Value = function(lrm)
+                        local Value = roundToStep(lrm, slider.Step)
+                        local decimals = tostring(slider.Step):match("%.(%d+)")
+                        decimals = decimals and #decimals or 0
+                        TFrame.Size = UDim2.new((Value / slider.Max), 0, 1, 0)
+                        ValueText.Text = string.format("%." .. decimals .. "f", Value)
+                        slider.Callback(Value);
+                    end,
+				};
+			end;
 
-        -- Visual feedback on hover
-        ValueButton.MouseEnter:Connect(function()
-            Twen:Create(ValueText, TweenInfo.new(0.2), {TextTransparency = 0.1}):Play()
-        end)
-
-        ValueButton.MouseLeave:Connect(function()
-            Twen:Create(ValueText, TweenInfo.new(0.2), {TextTransparency = 0.5}):Play()
-        end)
-    end)
-
-    MFrame.InputBegan:Connect(function(Input)
-        if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
-            Holding = true
-            update(Input)
-            Twen:Create(TextInt, TweenInfo.new(0.1), {TextTransparency = 0}):Play()
-        end
-    end)
-
-    MFrame.InputEnded:Connect(function(Input)
-        if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
-            Holding = false
-            Twen:Create(TextInt, TweenInfo.new(0.1), {TextTransparency = 0.3}):Play()
-        end
-    end)
-
-    Input.InputChanged:Connect(function(Input)
-        if Holding then
-            if (Input.UserInputType == Enum.UserInputType.MouseMovement or Input.UserInputType == Enum.UserInputType.Touch) then
-                update(Input)
-            end
-        end
-    end)
-
-    return {
-        Visible = function(newindx)
-            FunctionSlider.Visible = newindx
-        end,
-        Value = function(lrm)
-            local Value = roundToStep(math.clamp(lrm, slider.Min, slider.Max), slider.Step)
-            local decimals = tostring(slider.Step):match("%.(%d+)")
-            decimals = decimals and #decimals or 0
-            TFrame.Size = UDim2.fromScale((Value - slider.Min) / (slider.Max - slider.Min), 1)
-            ValueText.Text = string.format("%." .. decimals .. "f", Value)
-            slider.Callback(Value)
-        end,
-    }
-end
 			function SectionTable:NewDropdown(drop)
 				drop = Config(drop,{
 					Title = "Dropdown",

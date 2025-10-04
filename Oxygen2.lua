@@ -1987,7 +1987,7 @@ function Library.new(config)
 					end
 				end)
    
-                ValueText.FocusLost:Connect(function(enterPressed, InputObiect)
+                ValueText.FocusLost:Connect(function(enterPressed, inputObject)
                     updateFromTextInput(ValueText.Text)
                 end)
      

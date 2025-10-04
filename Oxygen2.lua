@@ -230,6 +230,9 @@ function Library.new(config)
 	end;
 
 	task.spawn(function()
+       local UserInputService = game:GetService('UserInputService')
+       local isMobile = UserInputService.TouchEnabled and not (UserInputService.MouseEnabled or UserInputService.KeyboardEnabled)
+
 		local Frame = Instance.new("Frame")
 		local UICorner = Instance.new("UICorner")
 		local DropShadow = Instance.new("ImageLabel")
@@ -246,6 +249,7 @@ function Library.new(config)
 		Frame.Position = UDim2.new(0.5, 0, -0.2, 0)
 		Frame.Size = UDim2.new(0.100000001, 0, 0.05500000007, 0)
 		Frame.ZIndex = 150
+        Frame.Visible = isMobile
 
 		Twen:Create(Frame,TweenInfo.new(1,Enum.EasingStyle.Quint,Enum.EasingDirection.InOut),{
 			Position = UDim2.new(0.5, 0, 0, 0)
@@ -263,7 +267,7 @@ function Library.new(config)
 		DropShadow.Size = UDim2.new(1, 37, 1, 37)
 		DropShadow.ZIndex = 150
 		DropShadow.Image = "rbxassetid://6014261993"
-        DropShadow.Visible = false -- recent change
+        DropShadow.Visible = false 
 		DropShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
 		DropShadow.ImageTransparency = 0.500
 		DropShadow.ScaleType = Enum.ScaleType.Slice
@@ -334,8 +338,11 @@ function Library.new(config)
 			end;
 		end;
 
+        if isMobile then
+
 		WindowTable.ToggleButton()
-	end)
+	end
+end)
 
 	local ImageButton = Instance.new("ImageButton")
 

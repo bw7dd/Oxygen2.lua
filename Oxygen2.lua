@@ -1986,12 +1986,16 @@ function Library.new(config)
 						end
 					end
 				end)
-
-                ValueText.FocusLost:Connect(function(enterPressed)
-                    if enterPressed then
-                        updateFromTextInput(ValueText.Text)
-                    end
+   
+                ValueText.FocusLost:Connect(function(enterPressed, InputObiect)
+                    updateFromTextInput(ValueText.Text)
                 end)
+     
+                ValueText:GetPropertyChangedSignal("Text"):Connect(function()
+                        if ValueText:IsFocused() then
+                            updateFromTextInput(ValueText.Text)
+                        end
+                    end)
 
 				return {
 					Visible = function(newindx)

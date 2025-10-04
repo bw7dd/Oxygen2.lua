@@ -1987,6 +1987,12 @@ function Library.new(config)
 					end
 				end)
 
+                ValueText.FocusLost:Connect(function(enterPressed)
+                    if enterPressed then
+                        updateFromTextInput(ValueText.Text)
+                    end
+                end)
+
 				return {
 					Visible = function(newindx)
 						FunctionSlider.Visible = newindx

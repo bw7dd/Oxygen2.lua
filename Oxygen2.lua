@@ -1986,6 +1986,10 @@ function Library.new(config)
 						end
 					end
 				end)
+    
+                ValueText.Activated:Connect(function()
+                    ValueText:CaptureFocus()
+                end)
    
                 ValueText.FocusLost:Connect(function(enterPressed, inputObject)
                     updateFromTextInput(ValueText.Text)

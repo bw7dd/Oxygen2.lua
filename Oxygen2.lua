@@ -230,9 +230,6 @@ function Library.new(config)
 	end;
 
 	task.spawn(function()
-       local UserInputService = game:GetService('UserInputService')
-       local isMobile = UserInputService.TouchEnabled and not (UserInputService.MouseEnabled or UserInputService.KeyboardEnabled)
-
 		local Frame = Instance.new("Frame")
 		local UICorner = Instance.new("UICorner")
 		local DropShadow = Instance.new("ImageLabel")
@@ -250,7 +247,6 @@ function Library.new(config)
 		Frame.Size = UDim2.new(0.100000001, 0, 0.05500000007, 0)
 		Frame.ZIndex = 150
         Frame.Visible = isMobile
-
 		Twen:Create(Frame,TweenInfo.new(1,Enum.EasingStyle.Quint,Enum.EasingDirection.InOut),{
 			Position = UDim2.new(0.5, 0, 0, 0)
 		}):Play()
@@ -267,7 +263,7 @@ function Library.new(config)
 		DropShadow.Size = UDim2.new(1, 37, 1, 37)
 		DropShadow.ZIndex = 150
 		DropShadow.Image = "rbxassetid://6014261993"
-        DropShadow.Visible = false 
+        DropShadow.Visible = false -- recent change
 		DropShadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
 		DropShadow.ImageTransparency = 0.500
 		DropShadow.ScaleType = Enum.ScaleType.Slice
@@ -339,10 +335,9 @@ function Library.new(config)
 		end;
 
         if isMobile then
-
-		WindowTable.ToggleButton()
-	end
-end)
+		    WindowTable.ToggleButton()
+        end
+	end)
 
 	local ImageButton = Instance.new("ImageButton")
 
@@ -1823,7 +1818,7 @@ end)
 				local UIGradient = Instance.new("UIGradient")
 				local UIStroke = Instance.new("UIStroke")
 				local UICorner = Instance.new("UICorner")
-				local ValueText = Instance.new("TextBox")
+				local ValueText = Instance.new("TextLabel")
 				local UIGradient_2 = Instance.new("UIGradient")
 				local MFrame = Instance.new("Frame")
 				local UICorner_2 = Instance.new("UICorner")
@@ -1946,27 +1941,7 @@ end)
                     Twen:Create(TFrame,TweenInfo.new(0.1),{Size = Size}):Play()
                     slider.Callback(Value);
                 end
-    
-                local function updateFromTextInput(inputValue)
-                    local Value = tonumber(inputValue)
-                    if Value then
-                        Value = roundToStep(Value, sliderConfig.Step)
-                        Value = math.clamp(Value, sliderConfig.Min, sliderConfig.Max)
-                        local Size = UDim2.fromScale((Value - sliderConfig.Min) / (sliderConfig.Max - sliderConfig.Min), 1)
-                   local decimals = tostring(sliderConfig.Step):match("%.(%d+)") or 0
-            decimals = decimals and #decimals or 0
-            ValueText.Text = string.format("%." .. decimals .. "f", Value)
-            TweenService:Create(TFrame, TweenInfo.new(0.1), {Size = Size}):Play()
-            sliderConfig.Callback(Value)
-        else
 
-
-            local currentValue = ((TFrame.Size.X.Scale * (sliderConfig.Max - sliderConfig.Min)) + sliderConfig.Min)
-            local decimals = tostring(sliderConfig.Step):match("%.(%d+)") or 0
-            decimals = decimals and #decimals or 0
-            ValueText.Text = string.format("%." .. decimals .. "f", currentValue)
-        end
-    end
 				MFrame.InputBegan:Connect(function(Input)
 					if Input.UserInputType == Enum.UserInputType.MouseButton1 or Input.UserInputType == Enum.UserInputType.Touch then
 						Holding = true
@@ -1993,20 +1968,6 @@ end)
 						end
 					end
 				end)
-    
-                ValueText.Activated:Connect(function()
-                    ValueText:CaptureFocus()
-                end)
-   
-                ValueText.FocusLost:Connect(function(enterPressed, inputObject)
-                    updateFromTextInput(ValueText.Text)
-                end)
-     
-                ValueText:GetPropertyChangedSignal("Text"):Connect(function()
-                        if ValueText:IsFocused() then
-                            updateFromTextInput(ValueText.Text)
-                        end
-                    end)
 
 				return {
 					Visible = function(newindx)

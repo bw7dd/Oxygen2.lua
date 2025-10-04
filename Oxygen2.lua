@@ -230,6 +230,9 @@ function Library.new(config)
 	end;
 
 	task.spawn(function()
+      local UserInputService = game:GetService('UserInputService')
+      local isMobile = UserInputService.TouchEnabled and not (UserInputService.MouseEnabled or UserInputService.KeyboardEnabled)
+
 		local Frame = Instance.new("Frame")
 		local UICorner = Instance.new("UICorner")
 		local DropShadow = Instance.new("ImageLabel")
